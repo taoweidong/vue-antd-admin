@@ -40,6 +40,7 @@ $ yarn serve
 ```
 ### or npm
 ```
+node 版本： v16.19.1
 $ npm install
 $ npm run serve
 ```
