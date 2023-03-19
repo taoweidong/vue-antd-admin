@@ -3,9 +3,9 @@
     <div class="top">
       <div class="header">
         <img alt="logo" class="logo" src="@/assets/img/logo.png" />
-        <span class="title">平台白盒可信看板</span>
+        <span class="title">个人看板项目</span>
       </div>
-      <!-- <div class="desc">平台白盒可信看板</div> -->
+      <!-- <div class="desc">个人看板项目</div> -->
     </div>
     <div class="login">
       <a-form @submit="onSubmit" :form="form">
