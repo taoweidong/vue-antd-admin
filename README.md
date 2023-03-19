@@ -28,6 +28,11 @@
 | --- | --- | --- | --- | --- |
 | IE10, Edge | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
 
+## 学习文档
+- https://antdv.com/components/overview-cn
+- https://iczer.gitee.io/vue-antd-admin-docs/
+- https://pro.antdv.com/
+
 ## 使用
 ### clone
 ```bash
@@ -40,6 +45,7 @@ $ yarn serve
 ```
 ### or npm
 ```
+node 版本： v16.19.1
 $ npm install
 $ npm run serve
 ```
