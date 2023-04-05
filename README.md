@@ -33,6 +33,7 @@
 - https://iczer.gitee.io/vue-antd-admin-docs/
 - https://pro.antdv.com/
 - https://blog.csdn.net/weixin_44585369/article/details/113401332
+- 登录服务端适配：https://www.likecs.com/show-203400123.html
 
 ## 使用
 ### clone
