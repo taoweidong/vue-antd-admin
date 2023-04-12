@@ -181,7 +181,7 @@
     "invariant" "^2.2.4"
     "semver" "^5.5.0"
 
-"@babel/core@^7.0.0", "@babel/core@^7.0.0-0", "@babel/core@^7.8.4", "@babel/core@^7.9.6":
+"@babel/core@*", "@babel/core@^7.0.0", "@babel/core@^7.0.0-0", "@babel/core@^7.8.4", "@babel/core@^7.9.6":
   "integrity" "sha1-vWeGBGZoqSWsK9L9lbV5uSojs2o="
   "resolved" "https://registry.npm.taobao.org/@babel/core/download/@babel/core-7.10.2.tgz"
   "version" "7.10.2"
@@ -3171,7 +3171,7 @@
   "resolved" "https://registry.npm.taobao.org/core-js/download/core-js-2.6.11.tgz?cache=0&sync_timestamp=1586450269267&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcore-js%2Fdownload%2Fcore-js-2.6.11.tgz"
   "version" "2.6.11"
 
-"core-js@^3.6.4", "core-js@^3.6.5":
+"core-js@^3", "core-js@^3.6.4", "core-js@^3.6.5":
   "integrity" "sha1-c5XcJzrzf7LlDpvT2f6EEoUjHRo="
   "resolved" "https://registry.npm.taobao.org/core-js/download/core-js-3.6.5.tgz?cache=0&sync_timestamp=1586450269267&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcore-js%2Fdownload%2Fcore-js-3.6.5.tgz"
   "version" "3.6.5"
@@ -10241,7 +10241,7 @@
   "resolved" "https://registry.npm.taobao.org/vue-template-es2015-compiler/download/vue-template-es2015-compiler-1.9.1.tgz"
   "version" "1.9.1"
 
-"vue@^2.0.0", "vue@^2.5.3", "vue@^2.6.10", "vue@^2.6.11", "vue@>=2.5.0", "vue@>=2.6.0":
+"vue@^2.0.0", "vue@^2.6.0", "vue@^2.6.10", "vue@^2.6.11", "vue@>=1", "vue@>=2.5.0", "vue@>=2.6.0":
   "integrity" "sha1-dllNh31LEiNEBuhONSdcbVFBJcU="
   "resolved" "https://registry.npm.taobao.org/vue/download/vue-2.6.11.tgz?cache=0&sync_timestamp=1592000011428&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvue%2Fdownload%2Fvue-2.6.11.tgz"
   "version" "2.6.11"
@@ -10296,6 +10296,11 @@
   "integrity" "sha1-IMwIYGLXUHafzh/rs05/zurr3kU="
   "resolved" "https://registry.npm.taobao.org/vuex/download/vuex-3.4.0.tgz"
   "version" "3.4.0"
+
+"vxe-table@^3.6.11":
+  "integrity" "sha512-0qkxmbV0RkciRn4YL7eQVQ1YODmw1RP2WUg2wfk6Y3XGdQGBBpKCuWrv/GfCFrTtfWoHKo9Hs6I2MZsZ5LkAUA=="
+  "resolved" "https://registry.npmmirror.com/vxe-table/-/vxe-table-3.6.11.tgz"
+  "version" "3.6.11"
 
 "warning@^4.0.0":
   "integrity" "sha1-Fungd+uKhtavfWSqHgX9hbRnjKM="
@@ -10625,6 +10630,11 @@
   "integrity" "sha1-S8jZmEQDaWIl74OhVzy7y0552xM="
   "resolved" "https://registry.npm.taobao.org/xdg-basedir/download/xdg-basedir-4.0.0.tgz"
   "version" "4.0.0"
+
+"xe-utils@^3.5.0", "xe-utils@^3.5.7":
+  "integrity" "sha512-3H+fDBKBR2wLJgyA7k9C/w1Xljx6Maml5ukV0WDY06HjYyGs2FEz6XhcwRCLIDXX4pBP3Gu0nX9DbCeuuRA2Ew=="
+  "resolved" "https://registry.npmmirror.com/xe-utils/-/xe-utils-3.5.7.tgz"
+  "version" "3.5.7"
 
 "xtend@^4.0.0", "xtend@~4.0.1":
   "integrity" "sha1-u3J3n1+kZRhrH0OPZ0+jR/2121Q="

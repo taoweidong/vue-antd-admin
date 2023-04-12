@@ -1,6 +1,6 @@
 <template>
   <div class="header-version">
-    <a-select ref="select" :value="version" style="width: 120px" @focus="focus" @change="handleChange">
+    <a-select ref="select" :value="version" style="width: 120px" @change="handleChange">
       <a-select-option value="24A">24A</a-select-option>
       <a-select-option value="23B">23B</a-select-option>
       <a-select-option value="23A" disabled>23A</a-select-option>
@@ -28,6 +28,9 @@ export default {
     leaveSearchMode() {
       this.searchMode = false
       setTimeout(() => this.$emit('active', false), 300)
+    },
+    handleChange(value) {
+      console.log(value)
     }
   }
 }
