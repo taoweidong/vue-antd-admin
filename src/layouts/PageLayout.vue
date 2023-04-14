@@ -138,7 +138,7 @@ export default {
 
 .page-content {
   position: relative;
-  padding: 24px 0 0;
+  padding: 8px 0 0;
 
   &.side {}
 

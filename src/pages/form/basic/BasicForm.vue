@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-table border stripe height="400" :loading="loading" :column-config="{ resizable: true }"
+    <vxe-table border stripe height="800" :loading="loading" :column-config="{ resizable: true }"
       :row-config="{ isHover: true }" :checkbox-config="{ labelField: 'id', highlight: true, range: true }"
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>
