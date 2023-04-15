@@ -1,6 +1,6 @@
 <template>
   <div class="page-layout">
-    <page-header ref="pageHeader" :style="`margin-top: ${multiPage ? 0 : -24}px`" :breadcrumb="breadcrumb"
+    <!-- <page-header ref="pageHeader" :style="`margin-top: ${multiPage ? 0 : -24}px`" :breadcrumb="breadcrumb"
       :title="pageTitle" :logo="logo" :avatar="avatar">
       <slot name="action" slot="action"></slot>
       <slot slot="content" name="headerContent"></slot>
@@ -13,7 +13,7 @@
         </div>
       </div>
       <slot v-if="this.$slots.extra" slot="extra" name="extra"></slot>
-    </page-header>
+    </page-header> -->
     <div ref="page" :class="['page-content', layout, pageWidth]">
       <slot></slot>
     </div>
@@ -21,13 +21,13 @@
 </template>
 
 <script>
-import PageHeader from '@/components/page/header/PageHeader'
+// import PageHeader from '@/components/page/header/PageHeader'
 import { mapState, mapMutations } from 'vuex'
 import { getI18nKey } from '@/utils/routerUtil'
 
 export default {
   name: 'PageLayout',
-  components: { PageHeader },
+  components: {},
   props: ['desc', 'logo', 'title', 'avatar', 'linkList', 'extraImage'],
   data() {
     return {
@@ -105,10 +105,10 @@ export default {
       return breadcrumb
     },
     /**
-     * 用于计算页面内容最小高度
+     * 用于计算页面内容最小高度  this.$refs.pageHeader.$el.offsetHeight +
      * @param newHeight
      */
-    updatePageHeight(newHeight = this.$refs.pageHeader.$el.offsetHeight + this.marginCorrect) {
+    updatePageHeight(newHeight = this.marginCorrect) {
       this.correctPageMinHeight(this.pageHeaderHeight - newHeight)
       this.pageHeaderHeight = newHeight
     }

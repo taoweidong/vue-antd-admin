@@ -1,7 +1,7 @@
 <template>
   <a-layout-header :class="[headerTheme, 'admin-header']">
     <div :class="['admin-header-wide', layout, pageWidth]">
-      <router-link v-if="isMobile || layout === 'head'" to="/" :class="['logo', isMobile ? null : 'pc', headerTheme]">
+      <router-link v-if="isMobile || layout === 'head'" to="/dashboard/workplace" :class="['logo', isMobile ? null : 'pc', headerTheme]">
         <img width="32" src="@/assets/img/logo.png" />
         <h1 v-if="!isMobile">{{ systemName }}</h1>
       </router-link>
@@ -14,11 +14,11 @@
       <div :class="['admin-header-right', headerTheme]">
         <!-- <header-search class="header-item" @active="val => searchActive = val" /> -->
         <header-version />
-        <a-tooltip class="header-item" title="帮助文档" placement="bottom">
+        <!-- <a-tooltip class="header-item" title="帮助文档" placement="bottom">
           <a href="https://iczer.gitee.io/vue-antd-admin-docs/" target="_blank">
             <a-icon type="question-circle-o" />
           </a>
-        </a-tooltip>
+        </a-tooltip> -->
         <!-- <header-notice class="header-item" /> -->
         <header-avatar class="header-item" />
         <!-- <a-dropdown class="lang header-item">

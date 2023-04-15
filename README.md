@@ -30,6 +30,7 @@
 
 ## 学习文档
 - https://antdv.com/components/overview-cn
+- https://gitee.com/gist006/vue-antd-admin
 - https://iczer.gitee.io/vue-antd-admin-docs/
 - https://pro.antdv.com/
 - https://blog.csdn.net/weixin_44585369/article/details/113401332

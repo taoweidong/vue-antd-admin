@@ -179,31 +179,6 @@ const options = {
           ]
         },
         {
-          path: 'exception',
-          name: '异常页',
-          meta: {
-            icon: 'warning',
-          },
-          component: BlankView,
-          children: [
-            {
-              path: '404',
-              name: 'Exp404',
-              component: () => import('@/pages/exception/404')
-            },
-            {
-              path: '403',
-              name: 'Exp403',
-              component: () => import('@/pages/exception/403')
-            },
-            {
-              path: '500',
-              name: 'Exp500',
-              component: () => import('@/pages/exception/500')
-            }
-          ]
-        },
-        {
           path: 'components',
           name: '内置组件',
           meta: {
@@ -225,6 +200,40 @@ const options = {
               path: 'table',
               name: '高级表格',
               component: () => import('@/pages/components/table')
+            }
+          ]
+        },
+        {
+          path: 'document_list',
+          name: '资料库',
+          meta: {
+            icon: 'appstore-o'
+          },
+          component: PageView,
+          children: [
+            {
+              name: 'vue-antd-admin',
+              path: 'antdv_admin',
+              meta: {
+                icon: 'ant-design',
+                link: 'https://gitee.com/gist006/vue-antd-admin'
+              }
+            },
+            {
+              name: 'pro.antdv',
+              path: 'pro_antdv',
+              meta: {
+                icon: 'ant-design',
+                link: 'https://pro.antdv.com/'
+              }
+            },
+            {
+              name: '博客',
+              path: 'antdv_wiki',
+              meta: {
+                icon: 'ant-design',
+                link: 'https://blog.csdn.net/weixin_44585369/article/details/113401332'
+              }
             }
           ]
         },
@@ -261,22 +270,7 @@ const options = {
           },
           component: () => import('@/pages/Demo')
         },
-        {
-          name: 'Ant Design Vue',
-          path: 'antdv',
-          meta: {
-            icon: 'ant-design',
-            link: 'https://www.antdv.com/docs/vue/introduce-cn/'
-          }
-        },
-        {
-          name: '使用文档',
-          path: 'document',
-          meta: {
-            icon: 'file-word',
-            link: 'https://iczer.gitee.io/vue-antd-admin-docs/'
-          }
-        }
+
       ]
     },
   ]

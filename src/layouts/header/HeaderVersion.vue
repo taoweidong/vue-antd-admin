@@ -1,9 +1,9 @@
 <template>
   <div class="header-version">
-    <a-select ref="select" :value="version" style="width: 120px" @change="handleChange">
+    <a-select ref="select" :value="version" style="width: 80px" @change="handleChange">
       <a-select-option value="24A">24A</a-select-option>
       <a-select-option value="23B">23B</a-select-option>
-      <a-select-option value="23A" disabled>23A</a-select-option>
+      <a-select-option value="23A">23A</a-select-option>
       <a-select-option value="22B">22B</a-select-option>
     </a-select>
   </div>
@@ -30,6 +30,7 @@ export default {
       setTimeout(() => this.$emit('active', false), 300)
     },
     handleChange(value) {
+      this.version = value
       console.log(value)
     }
   }
