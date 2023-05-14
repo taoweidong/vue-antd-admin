@@ -31,7 +31,7 @@ const routerMap = {
     component: () => import('@/pages/dashboard/analysis')
   },
   form: {
-    name: '表单页',
+    name: '表单页000',
     icon: 'form',
     component: view.page
   },

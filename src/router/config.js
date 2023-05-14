@@ -53,7 +53,7 @@ const options = {
         },
         {
           path: 'form',
-          name: '表单页',
+          name: '表单页2222',
           meta: {
             icon: 'form',
             page: {
@@ -62,6 +62,11 @@ const options = {
           },
           component: PageView,
           children: [
+            {
+              path: 'myPage',
+              name: '自定义页面',
+              component: () => import('@/pages/form/MyPage'),
+            },
             {
               path: 'basic',
               name: '基础表单',
