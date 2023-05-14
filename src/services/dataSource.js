@@ -2,7 +2,6 @@ import { GOODS, GOODS_COLUMNS } from './api'
 import { METHOD, request } from '@/utils/request'
 
 export function goodsList(params) {
-  console.log("goodsListgoodsListgoodsListgoodsList")
   return request(GOODS, METHOD.GET, params)
 }
 

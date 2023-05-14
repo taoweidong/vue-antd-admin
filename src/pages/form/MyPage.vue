@@ -1,6 +1,11 @@
 <template>
     <!-- @proxy-query="proxyQueryEvent" -->
-    <vxe-grid ref='xGrid' v-bind="gridOptions" @proxy-delete="proxyDeleteEvent" @proxy-save="proxySaveEvent">
+    <vxe-grid ref='xGrid' header-align="center" @toolbar-button-click="toolbarButtonClickEvent" v-bind="gridOptions"
+        @proxy-delete="proxyDeleteEvent" @proxy-save="proxySaveEvent">
+        <template #operate="{ row }">
+            <vxe-button icon="vxe-icon-edit" title="编辑" circle @click="editRowEvent(row)"></vxe-button>
+            <vxe-button icon="vxe-icon-delete" title="删除" circle @click="removeRowEvent(row)"></vxe-button>
+        </template>
     </vxe-grid>
 </template>
 
@@ -68,15 +73,15 @@ export default {
                 },
                 toolbarConfig: {
                     buttons: [
-                        { code: 'insert_actived', name: '新增', icon: 'vxe-icon-square-plus' },
-                        { code: 'delete', name: '直接删除', icon: 'vxe-icon-delete' },
-                        { code: 'mark_cancel', name: '删除/取消', icon: 'vxe-icon-delete' },
-                        { code: 'save', name: '保存', icon: 'vxe-icon-save', status: 'success' }
+                        { code: 'insert_button_actived', name: '新增', icon: 'vxe-icon-square-plus' },
+                        { code: 'delete_button_actived', name: '直接删除', icon: 'vxe-icon-delete' },
+                        { code: 'mark_cancel_button_actived', name: '删除/取消', icon: 'vxe-icon-delete' },
+                        { code: 'my_save_button_actived', name: '保存', icon: 'vxe-icon-save', status: 'success' }
                     ],
                     refresh: true,
                     import: false,
                     export: true,
-                    print: true,
+                    print: false,
                     zoom: true,
                     custom: true
                 },
@@ -107,10 +112,27 @@ export default {
                         //     })
                         //     return fetch(`${this.serveApiUrl}/api/pub/page/list/${page.pageSize}/${page.currentPage}`, queryParams).then(response => response.json())
                         // },
-                        query: ({ page }) => {
+                        query: ({ page, sorts, filters, form }) => {
                             console.log("触发查询。。。。。。。。。。。")
-                            const currentPage = page.currentPage
-                            const pageSize = page.pageSize
+
+                            const queryParams = Object.assign({}, form)
+                            // 处理排序条件
+                            const firstSort = sorts[0]
+                            if (firstSort) {
+                                queryParams.sort = firstSort.property
+                                queryParams.order = firstSort.order
+                            }
+                            // 处理筛选条件
+                            filters.forEach(({ property, values }) => {
+                                queryParams[property] = values.join(',')
+                            })
+
+                            console.log("查询条件：", queryParams)
+                            // const currentPage = page.currentPage
+                            // const pageSize = page.pageSize
+
+                            queryParams.currentPage = page.currentPage
+                            queryParams.pageSize = page.pageSize
 
                             console.log("接口查詢。。。。开始")
                             return new Promise(resolve => {
@@ -128,7 +150,7 @@ export default {
                                 //     resolve(list)
                                 // }, 500)
 
-                                ds.goodsList({ currentPage, pageSize }).then(result => {
+                                ds.goodsList({ queryParams }).then(result => {
                                     console.log("接口查詢。。。。完成")
                                     let list = result.data.data.record
                                     console.log(result.data.data)
@@ -184,7 +206,8 @@ export default {
                     { field: 'age', title: 'Age', visible: false, sortable: true, editRender: { name: '$input', props: { type: 'number', min: 1, max: 120 } } },
                     { field: 'amount', title: 'Amount', formatter: this.formatAmount, editRender: { name: '$input', props: { type: 'float', digits: 2, placeholder: '请输入数值' } } },
                     { field: 'updateDate', title: 'Update Date', width: 160, visible: false, sortable: true, formatter: this.formatDate },
-                    { field: 'createDate', title: 'Create Date', width: 160, visible: false, sortable: true, formatter: this.formatDate }
+                    { field: 'createDate', title: 'Create Date', width: 160, visible: false, sortable: true, formatter: this.formatDate },
+                    { title: '操作', width: 110, slots: { default: 'operate' } }
                 ],
                 importConfig: {
                     remote: true,
@@ -243,6 +266,30 @@ export default {
         // proxyQueryEvent() {
         //     message.success('触发查询proxyQueryEvent');
         // },
+        toolbarButtonClickEvent({ code }) {
+            const $grid = this.$refs.xGrid
+            switch (code) {
+                case 'insert_button_actived':
+                    $grid.insert({
+                        name: 'xxx'
+                    })
+                    message.success("触发新增事件")
+                    break
+                case 'mark_cancel_button_actived':
+                    message.success("触发新增事件")
+                    break
+                case 'my_save_button_actived':
+                    setTimeout(() => {
+                        const { insertRecords, removeRecords, updateRecords } = $grid.getRecordset()
+                        VXETable.modal.message({ content: `新增 ${insertRecords.length} 条，删除 ${removeRecords.length} 条，更新 ${updateRecords.length} 条`, status: 'success' })
+                        this.loadData()
+                    }, 100)
+                    break
+                case 'delete_button_actived':
+                    message.success("触发删除事件")
+                    break
+            }
+        },
         proxyDeleteEvent() {
             message.success('触发proxyDeleteEvent');
         },
