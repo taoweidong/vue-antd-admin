@@ -192,7 +192,17 @@ export default {
                         filterMultiple: false,
                         editRender: { name: 'input', attrs: { placeholder: '请输入角色' } }
                     },
-                    { field: 'email', title: 'Email', width: 160, editRender: { name: '$input', props: { placeholder: '请输入邮件' } } },
+                    {
+                        field: 'email', title: 'Email', width: 160,
+                        slots: {
+                            // 使用 JSX 渲染
+                            default: ({ row }) => {
+                                return [
+                                    <a style="color: blue" href="row.email" target="_blank">{row.email}</a>
+                                ]
+                            }
+                        }
+                    },
                     { field: 'nickname', title: 'Nickname', editRender: { name: 'input', attrs: { placeholder: '请输入昵称' } } },
                     {
                         field: 'sex',
